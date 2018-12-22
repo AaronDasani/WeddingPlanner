@@ -1,0 +1,32 @@
+
+@model Wedding
+
+<title>@Model.wedder_one and @Model.wedder_two 's Wedding</title>
+<div class="weddingBG text-light">
+    <partial name="navbarPartial"/>
+    <div class="container mt-5">
+
+        <div class="text-right">
+            <a href="~/dashboard" class="btn btn-info font-weight-light ">Dashboard</a>
+        </div>
+        <h2 class="font-weight-bold text-center mt-5">@Model.wedder_one and @Model.wedder_two 's Wedding</h2>
+        <hr>
+        <h5><small> Date: @Model.weddingDate.ToString("MMMMM dd, yyyy")</small></h5>
+        
+        <h5 class="font-weight-light mt-5 bg-light p-3 text-dark">Guest:</h5>
+        <ul class="list-inline ml-3 guestsList">
+            @if(Model.guests.Count>0)
+            {
+                @foreach(var guest in Model.guests)
+                {
+                    <li class="ml-3">@guest.user.firstname @guest.user.lastname</li>
+                }
+            }
+            else
+            {
+                <li class="font-weight-light ml-3">No Guests..</li>
+            }
+        </ul>
+    </div>
+</div>
+ 

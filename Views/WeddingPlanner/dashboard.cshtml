@@ -1,0 +1,79 @@
+@model List<Wedding>
+@{
+    bool invite =false;
+}
+<title>Dasboard</title>
+<div class="dashboardBG">
+    <partial name="navbarPartial"/>
+
+    <div class="container mt-5">
+
+        <div class="text-center  mb-5 mt-5">
+            <h3 class="font-weight-light">- Welcome @ViewBag.currentUser["user_name"] -</h3>
+            <hr>
+        </div>
+        <h5 class="font-weight-light mb-5 mt-3">Welcome to the Wedding Planner</h5>
+
+        <table class="table">
+            <thead>
+                <tr>
+                <th scope="col"><i class="fab fa-pagelines"></i> Wedding <i class="fab fa-pagelines"></i></th>
+                <th scope="col">Date <i class="fas fa-calendar-alt"></i></th>
+                <th scope="col">Guests <i class="fas fa-users"></i></th>
+                <th scope="col">Response</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var wedding in Model)
+                {
+                    <tr>
+                        <td><a href="wedding/@wedding.wedding_id" class="weddingBtn">@wedding.wedder_one & @wedding.wedder_two</a></td>
+                        <td>@wedding.weddingDate.ToString("MMM dd, yyyy")</td>
+                        <td class="guestCount">@wedding.guests.Count</td>
+                        @if(wedding.user_id == ViewBag.currentUser["user_id"])
+                        {
+                            <td><a href="cancelWedding/@wedding.wedding_id" class="btn btn-danger btn-sm">Cancel Wedding</a></td>
+
+                        }
+                        else
+                        {
+                            @if(wedding.guests.Count >0)
+                            {
+                                @foreach(var guest in wedding.guests)
+                                {
+                                    @if(guest.user_id!=ViewBag.currentUser["user_id"])
+                                    {
+                                        invite=false;
+                                        
+                                    }
+                                    else
+                                    {
+                                        <td><a href="unAccept/@ViewBag.currentUser["user_id"]/@wedding.wedding_id" class="btn btn-warning btn-sm text-light unAccept ">UnAccept</a></td>
+                                        invite=true;
+                                        break;
+                                        
+                                    }
+                                }
+                                @if(invite==false)
+                                {
+                                    <td><a href="accept/@ViewBag.currentUser["user_id"]/@wedding.wedding_id" class="btn btn-success btn-sm accept">Accept</a></td>
+                                }
+                            }
+                            else
+                            {
+                                <td><a href="accept/@ViewBag.currentUser["user_id"]/@wedding.wedding_id" class="btn btn-success btn-sm accept">Accept</a></td>
+                            }
+                        }
+                        
+                        
+                        
+                        
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<script>
+
+</script>

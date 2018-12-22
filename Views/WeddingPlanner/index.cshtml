@@ -1,0 +1,61 @@
+@model RegisterNLogin
+
+<title>Wedding Planner</title>
+<div class="indexBG text-light">
+    <partial name="indexNavbarPartial"/>
+    <div class="container col-11 mt-5">
+        <div class="row">
+            <div class="col-5 registerSection">
+                <h5 class="font-weight-light text-center">Register</h5>
+                <hr>
+                <form action="registration" method="post">
+                    <div class="form-group">
+                        <label asp-for="registerUser.firstname"></label>
+                        <input asp-for="registerUser.firstname" class="form-control ">
+                        <small class="d-block"><span asp-validation-for="registerUser.firstname" class="text-danger font-weight-bold"></span></small>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="registerUser.lastname"></label>
+                        <input asp-for="registerUser.lastname"  class="form-control"> 
+                        <small class="d-block"><span asp-validation-for="registerUser.lastname" class="text-danger font-weight-bold"></span></small>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="registerUser.email"></label>
+                        <input asp-for="registerUser.email"  class="form-control">
+                        <small class="d-block"><span asp-validation-for="registerUser.email" class="text-danger font-weight-bold"></span></small>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="registerUser.password"></label>
+                        <input asp-for="registerUser.password" class="form-control">
+                        <small class="d-block"><span asp-validation-for="registerUser.password" class="text-danger font-weight-bold"></span></small>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="registerUser.confirmPassword"></label>
+                        <input asp-for="registerUser.confirmPassword" class="form-control">
+                        <small class="d-block"><span asp-validation-for="registerUser.confirmPassword" class="text-danger font-weight-bold"></span></small>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-info d-block col-12">Register</button>
+                </form>
+            </div>
+            <div class="col-4 ml-5 loginSection">
+                <h5 class="font-weight-light text-center">Login</h5>
+                <hr>
+                <form action="login" method="post" class="mt-5">
+                    
+                    <div class="form-group">
+                        <label asp-for="loginUser.LoginEmail"></label>
+                        <input asp-for="loginUser.LoginEmail"  class="form-control">
+                        <small class="d-block"><span asp-validation-for="loginUser.LoginEmail" class="text-danger font-weight-bold"></span></small>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="loginUser.LoginPassword"></label>
+                        <input asp-for="loginUser.LoginPassword" class="form-control">
+                        <small class="d-block"><span asp-validation-for="loginUser.LoginPassword" class="text-danger font-weight-bold"></span></small>
+                    </div>
+                    <button type="submit" class="btn btn-dark d-block col-12">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

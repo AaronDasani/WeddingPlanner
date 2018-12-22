@@ -1,0 +1,45 @@
+.registerSection{
+    margin-right: 20%;
+}
+body,html{
+    height: 100%;
+}
+.dashboardBG{
+    background-image: url("../images/dashboardBG.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+table .weddingBtn:hover{
+    font-weight: bold;
+    transition-duration: 0.3s;
+}
+
+.indexBG{
+    background-image: url("../images/indexBG.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.weddingBG{
+    background-image: url("../images/weddingBg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    background-position: center;
+    background-attachment: fixed;
+}
+.planBG{
+    background-image: url("../images/planBG.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    background-position: center;
+    background-attachment: fixed;
+}

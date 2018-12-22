@@ -1,0 +1,42 @@
+@model Wedding
+
+<title>Plan Your Wedding</title>
+<div class="planBG">
+    <partial name="navbarPartial"/>
+    <div class="container mt-5">
+        <div class="text-right">
+            <a href="dashboard" class="btn btn-info font-weight-light">Dashboard</a>
+        </div>
+
+        
+        <div class="col-6 mt-4 bg-light rounded pb-5 pt-4 pr-5 pl-5 planForm">
+            <h4 class="mt-5 font-weight-light">Plan Your Wedding</h4>
+            <hr>
+            <form action="createWedding" method="post">
+                <div class="form-group">
+                    <label asp-for="wedder_one"></label>
+                    <input asp-for="wedder_one" class="form-control">
+                    <small><span asp-validation-for="wedder_one" class="font-weight-bold text-danger"></span></small>
+                </div>
+                <div class="form-group">
+                    <label asp-for="wedder_two"></label>
+                    <input asp-for="wedder_two" class="form-control">
+                    <small><span asp-validation-for="wedder_two" class="font-weight-bold text-danger"></span></small>
+                </div>
+                <div class="form-group">
+                    <label asp-for="weddingDate"></label>
+                    <input asp-for="weddingDate" class="form-control">
+                    <small><span asp-validation-for="weddingDate" class="font-weight-bold text-danger"></span></small>
+                </div>
+                <div class="form-group">
+                    <label asp-for="weddingAdress"></label>
+                    <input asp-for="weddingAdress" class="form-control">
+                    <small><span asp-validation-for="weddingAdress" class="font-weight-bold text-danger"></span></small>
+                </div>
+                <div class="text-right">
+                    <button type="submit" class="btn btn-success">Create</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
